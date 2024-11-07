@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "SharePoint Search Extension",
+  "version": "1.0.01",
+  "description": "Adds SharePoint search buttons to Salesforce client IDs",
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "*://*.lightning.force.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.lightning.force.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "action": {}
+}
