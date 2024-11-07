@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salesforce bswift Enhancement Extension - Installation Guide</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />
+    <style>
+        :root {
+            --primary-color: #0176d3; /* Salesforce blue */
+            --text-color: #2b2826;
+            --bg-color: #f3f3f3;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: var(--bg-color);
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1, h2 {
+            color: var(--primary-color);
+        }
+
+        .step {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 0 4px 4px 0;
+        }
+
+        code {
+            background: #f0f0f0;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .browser-icon {
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+            margin-right: 4px;
+        }
+
+        .collapsible {
+            background-color: #f8f9fa;
+            color: var(--primary-color);
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            margin: 1rem 0;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .active, .collapsible:hover {
+            background-color: #eef0f2;
+        }
+
+        .content {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            background-color: white;
+        }
+
+        .collapsible:after {
+            content: '\02795'; /* Unicode character for "plus" sign (+) */
+            font-size: 13px;
+            color: var(--primary-color);
+            margin-left: 5px;
+        }
+
+        .active:after {
+            content: "\2796"; /* Unicode character for "minus" sign (-) */
+        }
+
+        /* Adjust Prism styles */
+        pre[class*="language-"] {
+            margin: 1em 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Salesforce bswift Enhancement Extension</h1>
+        
+        <p>This browser extension enhances your Salesforce experience by adding convenient utility buttons next to bswift Client IDs.</p>
+
+        <h2>Features</h2>
+        <ul class="feature-list">
+            <li>Quick SharePoint document search directly from Salesforce</li>
+            <li>One-click access to bswift role search with automatic ID copying</li>
+            <li>Works in both list and detail views</li>
+            <li>Automatically handles dynamic page updates</li>
+        </ul>
+
+        <h2>Installation Instructions</h2>
+        
+        <div class="step">
+            <h3>Step 1: Download the Extension</h3>
+            <ol>
+                <li>Download the latest version of the extension files <a href="<Removed>">here</a>.</li>
+                <li>Extract the ZIP file to a folder on your computer</li>
+                <li>Make note of the folder location</li>
+            </ol>
+            <ul>
+                <li>This page will always have the latest version of this extension.</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>Step 2: Install in Chrome/Edge</h3>
+            <ol>
+                <li>Open 
+                    <img src="https://www.google.com/chrome/static/images/chrome-logo.svg" class="browser-icon" alt="Chrome">Chrome or 
+                    <img src="https://www.microsoft.com/favicon.ico" class="browser-icon" alt="Edge">Edge 
+                    and navigate to 
+                    <a href="chrome://extensions" id="chromeLink">chrome://extensions</a> (
+                    <img src="https://www.google.com/chrome/static/images/chrome-logo.svg" class="browser-icon" alt="Chrome">Chrome) or 
+                    <a href="edge://extensions" id="edgeLink">edge://extensions</a> (
+                    <img src="https://www.microsoft.com/favicon.ico" class="browser-icon" alt="Edge">Edge)
+                    <script>
+                        // Chrome/Edge don't allow direct links to extension pages, so we'll help users copy the URL
+                        document.getElementById('chromeLink').addEventListener('click', (e) => {
+                            e.preventDefault();
+                            navigator.clipboard.writeText('chrome://extensions');
+                            alert('URL copied to clipboard! Paste it into your Chrome address bar.');
+                        });
+                        document.getElementById('edgeLink').addEventListener('click', (e) => {
+                            e.preventDefault();
+                            navigator.clipboard.writeText('edge://extensions');
+                            alert('URL copied to clipboard! Paste it into your Edge address bar.');
+                        });
+                    </script>
+                </li>
+                <li>For <img src="https://www.google.com/chrome/static/images/chrome-logo.svg" class="browser-icon" alt="Chrome">Chrome: Enable "Developer mode" using the toggle in the top-right corner<br>
+                    For <img src="https://www.microsoft.com/favicon.ico" class="browser-icon" alt="Edge">Edge: Enable "Developer mode" on the left side</li>
+                <li>For <img src="https://www.google.com/chrome/static/images/chrome-logo.svg" class="browser-icon" alt="Chrome">Chrome: Click "Load unpacked" in the top-left corner<br>
+                    For <img src="https://www.microsoft.com/favicon.ico" class="browser-icon" alt="Edge">Edge: Click "Load unpacked" in the center</li>
+                <li>Navigate to and select the folder containing the extension files</li>
+                <li>The extension should now appear in your extensions list</li>
+                <li>The extension is now installed, you can refresh your Salesforce pages to show the buttons.</li>
+            </ol>
+        </div>
+
+        <h2>Source Code</h2>
+        
+        <button type="button" class="collapsible">manifest.json</button>
+        <div class="content">
+            <pre><code class="language-json line-numbers">{
+  "manifest_version": 3,
+  "name": "SharePoint Search Extension",
+  "version": "1.0.01",
+  "description": "Adds SharePoint search buttons to Salesforce client IDs",
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "*://*.lightning.force.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.lightning.force.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "action": {}
+}</code></pre>
+        </div>
+
+        <button type="button" class="collapsible">content.js</button>
+        <div class="content">
+            <pre><code class="language-javascript line-numbers">/**
+ * Salesforce Enhancement Script for bswift Client IDs
+ * 
+ * This script adds utility buttons next to bswift Client IDs in Salesforce:
+ * 1. SharePoint Search: Directly search for client documents in SharePoint
+ * 2. Role Search: Copy ID and open bswift role search page
+ * 
+ * Key Functions:
+ * - findBswiftIdCells(): Locates valid bswift Client IDs in both list and detail views
+ * - addButtonsToBswiftIds(): Creates and adds the utility buttons next to each ID
+ * 
+ * The script automatically handles dynamic page updates using a MutationObserver
+ * to maintain functionality as new content loads.
+ */
+
+// Base URL for SharePoint document search - this URL template allows searching within the Audits folder
+const SHAREPOINT_BASE_URL = "<Removed>";
+
+// Locates all cells containing valid bswift Client IDs in the Salesforce interface
+function findBswiftIdCells() {
+  const idElements = Array.from(document.querySelectorAll('.slds-truncate.uiOutputTextArea, lightning-formatted-text'));
+  
+  return idElements.filter(el => {
+    const isTableCell = el.closest('td.slds-cell-edit');
+    const isFormField = el.closest('.slds-form-element')?.querySelector('.test-id__field-label')?.textContent === 'bswift Client Id';
+    return (isTableCell || isFormField);
+  }).map(el => el.closest('td.slds-cell-edit') || el.closest('.slds-form-element__control'));
+}
+
+// Adds SharePoint search and Role Search buttons next to each bswift ID
+function addButtonsToBswiftIds() {
+  const bswiftIdCells = findBswiftIdCells();
+  
+  bswiftIdCells.forEach(cell => {
+    if (cell.querySelector('.search-button')) return;
+    
+    const idSpan = cell.querySelector('.slds-truncate.uiOutputTextArea, lightning-formatted-text');
+    const fullId = idSpan.textContent.trim();
+    const bswiftId = fullId.replace(/\D/g, '');
+    
+    const buttonContainer = document.createElement('span');
+    buttonContainer.style.marginLeft = '8px';
+    
+    const searchButton = document.createElement('button');
+    searchButton.className = 'search-button slds-button slds-button_icon';
+    searchButton.style.marginRight = '4px';
+    searchButton.innerHTML = `
+      <img src="<Removed>" 
+           alt="SharePoint" 
+           style="width: 16px; height: 16px; vertical-align: middle;"
+      />
+      <span class="slds-assistive-text">Search SharePoint</span>
+    `;
+    searchButton.onclick = (e) => {
+      e.stopPropagation();
+      window.open(`${SHAREPOINT_BASE_URL}${bswiftId}`, '_blank');
+    };
+    
+    const roleSearchButton = document.createElement('button');
+    roleSearchButton.className = 'role-search-button slds-button';
+    roleSearchButton.style.marginLeft = '4px';
+    roleSearchButton.style.minWidth = '20px';
+    roleSearchButton.style.padding = '0 4px';
+    roleSearchButton.innerHTML = `
+      <img src="<Removed>" 
+           alt="b" 
+           style="width: 16px; height: 16px; vertical-align: middle;"
+      />
+    `;
+    roleSearchButton.onclick = async (e) => {
+      e.stopPropagation();
+      try {
+        await navigator.clipboard.writeText(bswiftId);
+        alert('ID copied to clipboard!\nRedirecting to bswift welcome page.');
+        window.open('<Removed>');
+      } catch (error) {
+        console.error('Failed to copy:', error);
+        alert('Failed to copy ID. Please copy manually.\nRedirecting to bswift welcome page.');
+        window.open('<Removed>');
+      }
+    };
+    
+    buttonContainer.appendChild(searchButton);
+    buttonContainer.appendChild(roleSearchButton);
+    idSpan.parentNode.appendChild(buttonContainer);
+  });
+}
+
+// Initial run to add buttons to any existing bswift IDs
+addButtonsToBswiftIds();
+
+// Set up observer to watch for DOM changes (new rows/elements being added)
+const observer = new MutationObserver(() => {
+  addButtonsToBswiftIds();
+});
+
+// Start observing the entire document for changes
+observer.observe(document.body, {
+  childList: true,
+  subtree: true
+});</code></pre>
+        </div>
+
+        <h2>Usage Guide</h2>
+        <p>After installation, you'll see two new buttons next to each bswift Client ID in Salesforce:</p>
+        <ul class="feature-list">
+            <li><strong>SharePoint Search Button</strong> (SharePoint icon): Opens SharePoint document search filtered by the client ID</li>
+            <li><strong>Role Search Button</strong> (bswift icon): Copies the client ID to clipboard and redirects to bswift welcome page</li>
+        </ul>
+
+        <div class="note">
+            <strong>bswift Role Search Workflow:</strong>
+            <ol>
+                <li>Click the bswift icon button next to a client ID</li>
+                <li>The ID will be copied to your clipboard automatically</li>
+                <li>You'll be redirected to the bswift welcome page</li>
+                <li>Navigate to the Role page</li>
+                <li>Use Navigation Maint to change the client using the copied ID</li>
+            </ol>
+            <p><em>Note: Due to bswift security limitations, direct links to internal pages are not possible. The workflow above maintains security while providing convenience through automatic ID copying.</em></p>
+        </div>
+
+        <div class="note">
+            <strong>Note:</strong> The extension automatically runs on Salesforce pages and maintains functionality even as you navigate between different views or when new content loads dynamically.
+        </div>
+
+        <div class="note">
+            <strong>Troubleshooting:</strong>
+            <ul>
+                <li>If the extension stops working, try clicking the refresh icon on the extension card in 
+                    <a href="chrome://extensions" id="chromeTrouble">chrome://extensions</a> (
+                    <img src="https://www.google.com/chrome/static/images/chrome-logo.svg" class="browser-icon" alt="Chrome">Chrome) or 
+                    <a href="edge://extensions" id="edgeTrouble">edge://extensions</a> (
+                    <img src="https://www.microsoft.com/favicon.ico" class="browser-icon" alt="Edge">Edge)
+                    <script>
+                        document.getElementById('chromeTrouble').addEventListener('click', (e) => {
+                            e.preventDefault();
+                            navigator.clipboard.writeText('chrome://extensions');
+                            alert('URL copied to clipboard! Paste it into your Chrome address bar.');
+                        });
+                        document.getElementById('edgeTrouble').addEventListener('click', (e) => {
+                            e.preventDefault();
+                            navigator.clipboard.writeText('edge://extensions');
+                            alert('URL copied to clipboard! Paste it into your Edge address bar.');
+                        });
+                    </script>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        for (var i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
